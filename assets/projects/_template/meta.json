@@ -1,0 +1,18 @@
+{
+  "id": "YYYY-project-slug",
+  "year": "YYYY",
+  "categorySlug": "brand-identity",
+  "categoryLabel": { "en": "BRAND IDENTITY", "ko": "브랜드 아이덴티티" },
+  "title": { "en": "Project Title", "ko": "프로젝트 제목" },
+  "desc": {
+    "en": "Short English description of the project.",
+    "ko": "프로젝트 한국어 설명."
+  },
+  "cover": "assets/projects/YYYY-project-slug/cover.jpg",
+  "coverVideo": "",
+  "gallery": [
+    "assets/projects/YYYY-project-slug/gallery/01.jpg",
+    "assets/projects/YYYY-project-slug/gallery/02.jpg"
+  ],
+  "videoEmbed": ""
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://starlit-cendol-8d1a58.netlify.app/sitemap.xml

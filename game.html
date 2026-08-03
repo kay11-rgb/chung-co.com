@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHUNG & CO. — No Work Before Play</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#080808;
+  --surface:#111;
+  --rule:#1e1e1e;
+  --mid:#444;
+  --ink:#e8e6e0;
+  --cream:#f5f3ef;
+  --ease:cubic-bezier(0.76,0,0.24,1);
+}
+
+html,body{
+  min-height:100%;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'DM Sans','Helvetica Neue',Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  user-select:none;
+}
+
+/* ── WRAP ── */
+.wrap{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:1.2rem 1rem 2rem;
+}
+
+/* ── HEADER ── */
+.hd{
+  width:100%;
+  max-width:640px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom:.85rem;
+  border-bottom:1px solid var(--rule);
+  margin-bottom:1.6rem;
+}
+.hd-logo{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.22em;
+}
+.hd-right{display:flex;align-items:baseline;gap:.5rem;}
+.hd-label{font-size:.5rem;letter-spacing:.2em;color:var(--mid);}
+.hd-val{
+  font-size:1.3rem;font-weight:700;
+  font-variant-numeric:tabular-nums;
+  min-width:2ch;text-align:right;
+}
+
+/* ── LOCK SECTION ── */
+.lock-section{
+  width:100%;
+  max-width:640px;
+  display:flex;
+  align-items:center;
+  gap:1.1rem;
+  margin-bottom:1.4rem;
+}
+.lock-icon{
+  flex-shrink:0;
+  width:36px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+}
+.lock-icon svg{
+  transition:transform .4s var(--ease), opacity .3s ease;
+}
+.lock-copy{}
+.lock-head{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  margin-bottom:.25rem;
+}
+.lock-sub{
+  font-size:.5rem;
+  letter-spacing:.08em;
+  color:var(--mid);
+  line-height:1.6;
+}
+
+/* ── GRID ── */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  width:100%;
+  max-width:640px;
+}
+
+/* ── CARD ── */
+.card{
+  aspect-ratio:2/3;
+  perspective:900px;
+  cursor:pointer;
+  outline:none;
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .4s ease, transform .4s ease;
+}
+.card.visible{opacity:1;transform:translateY(0);}
+
+.card-inner{
+  position:relative;
+  width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .55s var(--ease);
+}
+.card.flipped .card-inner,
+.card.matched .card-inner{transform:rotateY(180deg);}
+
+.face,.reveal{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  border-radius:3px;
+  overflow:hidden;
+}
+
+/* ── LOGO FACE ── */
+.face{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:.5rem;
+}
+.face-rule{width:18px;height:1px;background:#222;}
+.face-text{
+  font-size:.52rem;font-weight:700;
+  letter-spacing:.18em;color:#282828;
+}
+
+/* ── CHARACTER FACE ── */
+.reveal{
+  transform:rotateY(180deg);
+  background:var(--cream);
+  border:1px solid #e0ddd8;
+  display:flex;flex-direction:column;
+  align-items:flex-start;justify-content:flex-end;
+  padding:.55rem .6rem;
+  transition:border-color .3s ease;
+}
+.char-art{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+/* character sprite — image natural size ≈1124×965px
+   Save reference sheet as assets/characters.png
+   Adjust these values if proportions differ */
+.char-sprite{
+  position:absolute;
+  display:block;
+  pointer-events:none;
+}
+[data-char="adobia"]  .char-sprite{width:422px;top:-8px;left:-8px;}
+[data-char="mytunes"] .char-sprite{width:243px;top:-10px;left:-46px;}
+[data-char="drselca"] .char-sprite{width:230px;top:2px;left:-97px;}
+[data-char="moctaks"] .char-sprite{width:324px;top:-95px;left:-213px;}
+
+.reveal-label{
+  position:relative;z-index:2;
+  font-size:.48rem;font-weight:700;
+  letter-spacing:.16em;color:#111;
+}
+.reveal-cat{
+  position:absolute;top:.5rem;right:.55rem;
+  font-size:.36rem;letter-spacing:.16em;
+  color:rgba(17,17,17,.35);z-index:2;
+}
+
+/* matched glow on cream card */
+.card.matched .reveal{border-color:currentColor;}
+.card.matched[data-char="adobia"]  .reveal{border-color:#7EC4C4;box-shadow:0 0 14px rgba(126,196,196,.25);}
+.card.matched[data-char="mytunes"] .reveal{border-color:#E8643A;box-shadow:0 0 14px rgba(232,100,58,.25);}
+.card.matched[data-char="drselca"] .reveal{border-color:#5498D8;box-shadow:0 0 14px rgba(84,152,216,.25);}
+.card.matched[data-char="moctaks"] .reveal{border-color:#64B464;box-shadow:0 0 14px rgba(100,180,100,.25);}
+
+/* ── SKIP ── */
+.skip-wrap{
+  width:100%;max-width:640px;
+  display:flex;justify-content:center;
+  margin-top:1.2rem;
+  border-top:1px solid var(--rule);
+  padding-top:1rem;
+}
+.skip-link{
+  font-size:.5rem;letter-spacing:.16em;
+  color:rgba(232,230,224,.28);
+  text-decoration:none;
+  transition:color .25s ease;
+}
+.skip-link:hover{color:rgba(232,230,224,.65);}
+
+/* ── WIN OVERLAY ── */
+#win{
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(8,8,8,.97);
+  flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:1.1rem;z-index:200;
+  text-align:center;padding:2rem 1rem;
+}
+#win.show{display:flex;}
+
+.win-rule{
+  width:32px;height:1px;background:var(--rule);
+  animation:wIn .5s var(--ease) .05s both;
+}
+.win-lock{
+  animation:wIn .6s var(--ease) both;
+  margin-bottom:.4rem;
+}
+.win-eyebrow{
+  font-size:.5rem;letter-spacing:.25em;color:var(--mid);
+  animation:wIn .5s var(--ease) .1s both;
+}
+.win-head{
+  font-size:clamp(1.8rem,6vw,3.8rem);
+  font-weight:700;letter-spacing:.12em;
+  animation:wIn .7s var(--ease) .15s both;
+}
+.win-tag{
+  font-family:Georgia,'Times New Roman',serif;
+  font-style:italic;
+  font-size:clamp(.8rem,2.2vw,1.05rem);
+  color:rgba(232,230,224,.45);
+  animation:wIn .5s var(--ease) .25s both;
+}
+.win-moves{
+  font-size:.5rem;letter-spacing:.2em;color:var(--mid);
+  animation:wIn .5s var(--ease) .3s both;
+}
+.win-cta{
+  display:flex;gap:1rem;align-items:center;margin-top:.5rem;
+  animation:wIn .5s var(--ease) .38s both;
+}
+.btn-view{
+  background:var(--ink);color:var(--bg);
+  border:none;
+  font:.58rem/1 inherit;letter-spacing:.22em;
+  padding:.8rem 2rem;cursor:pointer;
+  transition:opacity .2s;
+}
+.btn-view:hover{opacity:.85;}
+.btn-again{
+  background:none;border:1px solid #2a2a2a;color:var(--mid);
+  font:.5rem/1 inherit;letter-spacing:.2em;
+  padding:.8rem 1.5rem;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.btn-again:hover{border-color:var(--ink);color:var(--ink);}
+
+@keyframes wIn{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ── MOBILE ── */
+@media(max-width:520px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    max-width:340px;
+  }
+  .lock-section{gap:.8rem;}
+  .lock-icon{width:28px;height:34px;}
+  .lock-head{font-size:.65rem;}
+}
+@media(max-width:360px){
+  .grid{max-width:300px;}
+}
+@media(max-height:700px) and (min-width:521px){
+  .hd{margin-bottom:1rem;}
+  .lock-section{margin-bottom:1rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hd">
+    <span class="hd-logo">CHUNG &amp; CO.</span>
+    <div class="hd-right">
+      <span class="hd-label">MOVES</span>
+      <span class="hd-val" id="moveVal">0</span>
+    </div>
+  </header>
+
+  <!-- Lock concept -->
+  <div class="lock-section">
+    <div class="lock-icon" id="lockIcon">
+      <svg id="lockSvg" width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- shackle -->
+        <path id="lockShackle" d="M7 14V10C7 6.13 10.13 3 14 3C17.87 3 21 6.13 21 10V14" stroke="#383838" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <!-- body -->
+        <rect x="2" y="14" width="24" height="19" rx="2" fill="#1e1e1e" stroke="#383838" stroke-width="1.5"/>
+        <!-- keyhole -->
+        <circle cx="14" cy="22.5" r="2.5" fill="#383838"/>
+        <rect x="13" y="24" width="2" height="4" rx="1" fill="#383838"/>
+      </svg>
+    </div>
+    <div class="lock-copy">
+      <div class="lock-head">No Work Before Play.</div>
+      <div class="lock-sub" id="lockSub">Eight cards. Four matches. The work reveals itself.</div>
+    </div>
+  </div>
+
+  <!-- Card grid -->
+  <div class="grid" id="grid"></div>
+
+  <!-- Skip -->
+  <div class="skip-wrap">
+    <a href="./index-v2.html#projects" class="skip-link">or skip and view work</a>
+  </div>
+</div>
+
+<!-- Win overlay -->
+<div id="win">
+  <svg class="win-lock" width="36" height="46" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- open shackle -->
+    <path d="M7 10V10C7 6.13 10.13 3 14 3C17.87 3 21 6.13 21 10V5" stroke="#e8e6e0" stroke-width="2" stroke-linecap="round" fill="none" opacity=".5"/>
+    <rect x="2" y="14" width="24" height="19" rx="2" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+    <circle cx="14" cy="22.5" r="2.5" fill="#e8e6e0" opacity=".4"/>
+    <rect x="13" y="24" width="2" height="4" rx="1" fill="#e8e6e0" opacity=".4"/>
+  </svg>
+  <p class="win-eyebrow">CHUNG &amp; CO.</p>
+  <div class="win-rule"></div>
+  <h2 class="win-head">PROJECTS<br>UNLOCKED</h2>
+  <div class="win-rule"></div>
+  <p class="win-tag">Where strategy and creativity are one.</p>
+  <p class="win-moves" id="winMoves"></p>
+  <div class="win-cta">
+    <a href="./index-v2.html#projects" class="btn-view">VIEW THE WORK</a>
+    <button class="btn-again" id="winAgain">PLAY AGAIN</button>
+  </div>
+</div>
+
+<script>
+const CHARS = {
+  adobia:  { name:'ADOBIA',   cat:'FAIRY'    },
+  mytunes: { name:'MY TUNES', cat:'ARTIST'   },
+  drselca: { name:'DR.SELCA', cat:'DIRECTOR' },
+  moctaks: { name:'MOCTAKS',  cat:'GENIUS'   }
+};
+
+// Sprite image — save your reference sheet as assets/characters.png
+// Adjust .char-sprite CSS rules above if character positions don't align perfectly
+const SPRITE = 'assets/characters.png';
+
+let flipped=[], matchedCount=0, moves=0, lock=false;
+
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
+}
+
+function buildCard(charKey, idx){
+  const c = CHARS[charKey];
+  const el = document.createElement('div');
+  el.className='card';
+  el.dataset.char=charKey;
+  el.setAttribute('role','button');
+  el.setAttribute('aria-label', c.name);
+  el.setAttribute('tabindex','0');
+
+  el.innerHTML=`
+    <div class="card-inner">
+      <div class="face">
+        <div class="face-rule"></div>
+        <div class="face-text">CHUNG &amp; CO.</div>
+        <div class="face-rule"></div>
+      </div>
+      <div class="reveal">
+        <div class="char-art">
+          <img src="${SPRITE}" class="char-sprite" alt="${c.name}" loading="lazy" draggable="false">
+        </div>
+        <span class="reveal-cat">${c.cat}</span>
+        <span class="reveal-label">${c.name}</span>
+      </div>
+    </div>`;
+
+  // click + keyboard
+  el.addEventListener('click', ()=>handleClick(el));
+  el.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' ') handleClick(el); });
+
+  // staggered entrance
+  requestAnimationFrame(()=>setTimeout(()=>el.classList.add('visible'), 50+idx*60));
+  return el;
+}
+
+function handleClick(card){
+  if(lock) return;
+  if(card.classList.contains('flipped')||card.classList.contains('matched')) return;
+  card.classList.add('flipped');
+  flipped.push(card);
+
+  if(flipped.length===2){
+    moves++;
+    document.getElementById('moveVal').textContent=moves;
+    lock=true;
+    const [a,b]=flipped;
+    if(a.dataset.char===b.dataset.char){
+      setTimeout(()=>{
+        a.classList.add('matched');
+        b.classList.add('matched');
+        flipped=[];
+        lock=false;
+        matchedCount+=2;
+        if(matchedCount===8) setTimeout(showWin, 600);
+      }, 350);
+    } else {
+      setTimeout(()=>{
+        a.classList.remove('flipped');
+        b.classList.remove('flipped');
+        flipped=[];
+        lock=false;
+      }, 1100);
+    }
+  }
+}
+
+function showWin(){
+  // update lock icon to open state (already shown in win overlay)
+  document.getElementById('winMoves').textContent = moves + (moves===1?' MOVE':' MOVES');
+  document.getElementById('win').classList.add('show');
+}
+
+function init(){
+  const grid=document.getElementById('grid');
+  grid.innerHTML='';
+  flipped=[]; matchedCount=0; moves=0; lock=false;
+  document.getElementById('moveVal').textContent='0';
+  document.getElementById('win').classList.remove('show');
+  // restore lock text
+  document.getElementById('lockSub').textContent='Eight cards. Four matches. The work reveals itself.';
+
+  const keys=shuffle(['adobia','mytunes','drselca','moctaks','adobia','mytunes','drselca','moctaks']);
+  keys.forEach((k,i)=>grid.appendChild(buildCard(k,i)));
+}
+
+document.getElementById('winAgain').addEventListener('click', init);
+init();
+</script>
+</body>
+</html>

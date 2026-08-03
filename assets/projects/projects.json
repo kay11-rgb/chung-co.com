@@ -1,0 +1,158 @@
+{
+  "categories": [
+    { "slug": "brand-identity",   "label": { "en": "Brand Identity",    "ko": "브랜드 아이덴티티" } },
+    { "slug": "creative-design",  "label": { "en": "Creative & Design",  "ko": "크리에이티브 & 디자인" } },
+    { "slug": "art-direction",    "label": { "en": "Art Direction",      "ko": "아트 디렉션" } },
+    { "slug": "collaboration",    "label": { "en": "Collaboration",      "ko": "콜라보레이션" } },
+    { "slug": "event-exhibition", "label": { "en": "Event & Exhibition", "ko": "이벤트 & 전시" } },
+    { "slug": "others",           "label": { "en": "Others",             "ko": "기타" } }
+  ],
+  "order": [
+    "2012-wooyoungmi-brand-identity",
+    "2014-wooyoungmi-collection",
+    "2014-wooyoungmi-art-direction",
+    "2014-wooyoungmi-event",
+    "2020-chunnng-brand-identity",
+    "2020-chunnng-others",
+    "2021-nnnone",
+    "2012-solid-shows",
+    "2021-book-design-illustration"
+  ],
+  "projects": {
+    "2012-wooyoungmi-brand-identity": {
+      "id": "2012-wooyoungmi-brand-identity",
+      "year": "2012–2020",
+      "categorySlug": "brand-identity",
+      "categoryLabel": { "en": "BRAND IDENTITY", "ko": "브랜드 아이덴티티" },
+      "title": { "en": "WOOYOUNGMI", "ko": "WOOYOUNGMI" },
+      "desc": {
+        "en": "Established WOOYOUNGMI as an independent brand with a timeless persona — the 'Androgynous and Bohemian Artist.' Redesigned the logo from lowercase sans-serif to uppercase serif; introduced the frame-shaped brand mark, canvas-texture packaging, and metallic garment frame branding.",
+        "ko": "우영미를 독립 브랜드로 정립하고 '안드로지너스하고 보헤미안적인 아티스트'라는 타임리스 페르소나 확립. 소문자 산세리프에서 대문자 세리프로 로고 전환, 프레임 형태의 브랜드 마크와 캔버스 텍스처 패키징, 메탈릭 가먼트 프레임 브랜딩 도입."
+      },
+      "cover": "",
+      "coverVideo": "",
+      "gallery": [],
+      "videoEmbed": ""
+    },
+    "2014-wooyoungmi-collection": {
+      "id": "2014-wooyoungmi-collection",
+      "year": "2014–2020",
+      "categorySlug": "creative-design",
+      "categoryLabel": { "en": "COLLECTION & DESIGN", "ko": "컬렉션 & 디자인" },
+      "title": { "en": "WOOYOUNGMI", "ko": "WOOYOUNGMI" },
+      "desc": {
+        "en": "Creative direction across six seasons of co-ed collections shown at Paris Men's Fashion Week — AW20 (Orlando / Virginia Woolf), SS20 (80s City Pop), SS19 (David Bowie), AW18 (Bohemian Romantic), SS17 (Sol LeWitt). Grew brand revenue from ~$770K to over $77M annually.",
+        "ko": "파리 남성 패션위크에서 발표한 6시즌 코에드 컬렉션 크리에이티브 디렉션 — AW20(올랜도/버지니아 울프), SS20(80년대 시티팝), SS19(데이비드 보위), AW18(보헤미안 로맨틱), SS17(솔 르윗). 브랜드 연매출을 약 $77만에서 $7,700만 이상으로 성장."
+      },
+      "cover": "",
+      "coverVideo": "",
+      "gallery": [],
+      "videoEmbed": ""
+    },
+    "2014-wooyoungmi-art-direction": {
+      "id": "2014-wooyoungmi-art-direction",
+      "year": "2017–2020",
+      "categorySlug": "art-direction",
+      "categoryLabel": { "en": "ART DIRECTION", "ko": "아트 디렉션" },
+      "title": { "en": "WOOYOUNGMI", "ko": "WOOYOUNGMI" },
+      "desc": {
+        "en": "Led seasonal brand campaigns in collaboration with photographer Piczo and stylist Andrej Skok — FW17, SS18, FW18, SS19 (David Bowie tribute), FW19, SS20 (shot in Spain). Built London-based creative team of emerging photographers and stylists for consistent brand aesthetics.",
+        "ko": "포토그래퍼 Piczo, 스타일리스트 Andrej Skok과 시즌별 브랜드 캠페인 총괄 — FW17, SS18, FW18, SS19(데이비드 보위 오마주), FW19, SS20(스페인 촬영). 런던 기반 크리에이티브 팀(신진 포토그래퍼·스타일리스트)을 구성해 일관된 브랜드 미학 확립."
+      },
+      "cover": "",
+      "coverVideo": "",
+      "gallery": [],
+      "videoEmbed": ""
+    },
+    "2014-wooyoungmi-event": {
+      "id": "2014-wooyoungmi-event",
+      "year": "2014–2020",
+      "categorySlug": "event-exhibition",
+      "categoryLabel": { "en": "EVENT & SPACE", "ko": "이벤트 & 공간" },
+      "title": { "en": "WOOYOUNGMI", "ko": "WOOYOUNGMI" },
+      "desc": {
+        "en": "Conceptualized and launched 'Manmade Wooyoungmi' — the brand's flagship cultural space near Dosan Park, Seoul. Directed artist collaborations for seasonal exhibitions, managing the full process from artist selection to event execution. Oversaw Paris Fashion Week show production and spatial design.",
+        "ko": "도산공원 인근 브랜드 플래그십 문화공간 '만들어진 우영미' 기획 및 론칭. 시즌별 전시를 위한 아티스트 콜라보레이션 총괄 — 아티스트 선정부터 이벤트 실행까지 전 과정 진행. 파리 패션위크 쇼 프로덕션 및 공간 디자인 감독."
+      },
+      "cover": "",
+      "coverVideo": "",
+      "gallery": [],
+      "videoEmbed": ""
+    },
+    "2020-chunnng-brand-identity": {
+      "id": "2020-chunnng-brand-identity",
+      "year": "2020–2022",
+      "categorySlug": "brand-identity",
+      "categoryLabel": { "en": "BRAND IDENTITY", "ko": "브랜드 아이덴티티" },
+      "title": { "en": "CHUNNNG", "ko": "CHUNNNG" },
+      "desc": {
+        "en": "Founded and built CHUNNNG — a drop-style streetwear label exploring the intersection of reality and virtual world. Introduced 'Street Tailoring' as a new fashion language. Created virtual influencer characters (Adobia, My Tunes, Dr. Selca, Moctaks) and secured exclusive entry on Musinsa.",
+        "ko": "현실과 가상 세계의 교차점을 탐구하는 드롭 스타일 스트리트웨어 레이블 CHUNNNG 창립 및 구축. '스트리트 테일러링'을 새로운 패션 언어로 제시. 가상 인플루언서 캐릭터(Adobia, My Tunes, Dr. Selca, Moctaks) 개발, 무신사 단독 입점 성사."
+      },
+      "cover": "",
+      "coverVideo": "",
+      "gallery": [],
+      "videoEmbed": ""
+    },
+    "2020-chunnng-others": {
+      "id": "2020-chunnng-others",
+      "year": "2020–2021",
+      "categorySlug": "others",
+      "categoryLabel": { "en": "FILM & EXHIBITION", "ko": "필름 & 전시" },
+      "title": { "en": "CHUNNNG", "ko": "CHUNNNG" },
+      "desc": {
+        "en": "CATACOMB — artistic short film released on Watcha for CHUNNNG's launch. Directed by Pil-sung Yim, creative direction by Katie Chung. The film poses: can virtuality be a gift to humanity rather than a dystopian threat? Also served as costume designer for MMCA Hyundai Motor Series 2021 (Moon Kyung-won & Jeon Joon-ho).",
+        "ko": "CATACOMB — CHUNNNG 론칭 기념 아트 숏 필름, Watcha 발표. 임필성 감독, 크리에이티브 디렉팅 케이티 정. '가상현실은 디스토피아가 아닌 인류에게 주어진 선물이 될 수 있는가'를 탐구. MMCA 현대차 시리즈 2021 (문경원&전준호, 자유의 마을) 코스튬 디자인 참여."
+      },
+      "cover": "",
+      "coverVideo": "",
+      "gallery": [],
+      "videoEmbed": ""
+    },
+    "2021-nnnone": {
+      "id": "2021-nnnone",
+      "year": "2021–2022",
+      "categorySlug": "brand-identity",
+      "categoryLabel": { "en": "BRAND IDENTITY", "ko": "브랜드 아이덴티티" },
+      "title": { "en": "NNNONE", "ko": "NNNONE" },
+      "desc": {
+        "en": "Built NNNONE as the second label from GBRT Inc. — a multiverse extension of CHUNNNG's universe. 'NNNONE' derives from CHUNNNG's central NNN + ONE, symbolizing the fusion of multiple identities into one. Positioned for the modern individual who curates simultaneous, diverse self-expressions.",
+        "ko": "GBRT Inc.의 세컨드 레이블 NNNONE을 CHUNNNG 유니버스의 멀티버스 확장으로 구축. 브랜드명은 CHUNNNG의 중심 NNN + ONE에서 파생, 다양한 정체성의 하나로의 융합을 상징. 동시에 여러 취향을 큐레이션하는 현대인을 위한 브랜드로 포지셔닝."
+      },
+      "cover": "",
+      "coverVideo": "",
+      "gallery": [],
+      "videoEmbed": ""
+    },
+    "2012-solid-shows": {
+      "id": "2012-solid-shows",
+      "year": "2012–2022",
+      "categorySlug": "event-exhibition",
+      "categoryLabel": { "en": "EVENT & SHOW", "ko": "이벤트 & 쇼" },
+      "title": { "en": "SOLID", "ko": "SOLID" },
+      "desc": {
+        "en": "Art directed SOLID's milestone anniversary shows — 25th Anniversary at COEX (2017) and 30th Anniversary at DDP (2022). Each production transformed the venue into an immersive spatial narrative aligning with brand heritage and contemporary creative direction.",
+        "ko": "SOLID 주년 기념 쇼 아트 디렉션 — 25주년 COEX(2017)와 30주년 DDP(2022). 각 프로덕션은 브랜드 헤리티지와 동시대적 크리에이티브 디렉션을 담은 몰입형 공간 서사로 연출."
+      },
+      "cover": "",
+      "coverVideo": "",
+      "gallery": [],
+      "videoEmbed": ""
+    },
+    "2021-book-design-illustration": {
+      "id": "2021-book-design-illustration",
+      "year": "2021",
+      "categorySlug": "others",
+      "categoryLabel": { "en": "ILLUSTRATION", "ko": "일러스트레이션" },
+      "title": { "en": "Book Design & Illustration", "ko": "북 디자인 & 일러스트레이션" },
+      "desc": {
+        "en": "Personal illustration and book design work — a series of hand-painted watercolour studies exploring the boundaries between the natural world and abstraction.",
+        "ko": "개인 일러스트레이션 및 북 디자인 작업 — 자연 세계와 추상의 경계를 탐구하는 수채화 연작."
+      },
+      "cover": "",
+      "coverVideo": "",
+      "gallery": [],
+      "videoEmbed": ""
+    }
+  }
+}
