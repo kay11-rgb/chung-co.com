@@ -1401,18 +1401,18 @@ footer {
     </div>
     <div class="mail-field">
       <label class="mail-label">NAME</label>
-      <input class="mail-input" type="text" placeholder="Your name">
+      <input class="mail-input" id="mailName" type="text" placeholder="Your name">
     </div>
     <div class="mail-field">
       <label class="mail-label">EMAIL</label>
-      <input class="mail-input" type="email" placeholder="your@email.com">
+      <input class="mail-input" id="mailEmail" type="email" placeholder="your@email.com">
     </div>
     <div class="mail-field">
       <label class="mail-label">MESSAGE</label>
-      <textarea class="mail-textarea" placeholder="Tell us about your project…"></textarea>
+      <textarea class="mail-textarea" id="mailMessage" placeholder="Tell us about your project…"></textarea>
     </div>
-    <button class="mail-send" onclick="window.location.href='mailto:info@chung-co.com'">
-      <span>SEND INQUIRY</span><span>→</span>
+    <button class="mail-send" id="mailSend">
+      <span id="mailSendLabel">SEND INQUIRY</span><span>→</span>
     </button>
   </div>
 </div>
@@ -2008,6 +2008,41 @@ drawerLinks.forEach(link => {
   document.getElementById('gate-skip-btn').addEventListener('click', e=>{ e.preventDefault(); closeGate(); });
   document.getElementById('gate-view-btn').addEventListener('click', closeGate);
   document.getElementById('gate-replay-btn').addEventListener('click', ()=>{ gWin.classList.remove('gactive'); gWrap.style.display=''; gInit(); });
+})();
+</script>
+<script>
+(function(){
+  const btn = document.getElementById('mailSend');
+  if (!btn) return;
+  btn.addEventListener('click', async function(){
+    const name = document.getElementById('mailName').value.trim();
+    const email = document.getElementById('mailEmail').value.trim();
+    const message = document.getElementById('mailMessage').value.trim();
+    if (!name || !email || !message) return;
+    const label = document.getElementById('mailSendLabel');
+    btn.disabled = true;
+    label.textContent = 'SENDING…';
+    try {
+      const res = await fetch('https://formspree.io/f/xeaeoebz', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify({name, email, message})
+      });
+      if (res.ok) {
+        label.textContent = 'SENT';
+        document.getElementById('mailName').value = '';
+        document.getElementById('mailEmail').value = '';
+        document.getElementById('mailMessage').value = '';
+        setTimeout(()=>{ document.getElementById('mailOverlay').classList.remove('open'); label.textContent='SEND INQUIRY'; btn.disabled=false; }, 1800);
+      } else {
+        label.textContent = 'TRY AGAIN';
+        btn.disabled = false;
+      }
+    } catch(e) {
+      label.textContent = 'TRY AGAIN';
+      btn.disabled = false;
+    }
+  });
 })();
 </script>
 </body>
